@@ -1,4 +1,29 @@
-"""You are given an integer, N. 
+def print_rangoli(size):
+    
+    #first calculate the rangoli width
+    wid=4*size-3
+    
+    #the first part is crescent, till middle where there is max number of letter
+    for i in range(0,size):
+        st=chr(96+size-i)
+        for z in range(i):
+            st=chr(96+size-i+z+1)+"-"+st+"-"+chr(96+size-i+z+1)
+        print(st.center(wid,"-"))
+        
+    #the second part is descrescent, remember not to repeat the middle line    
+    for i in range(size-2,-1,-1):
+        st=chr(96+size-i)
+        for z in range(i):
+            st=chr(96+size-i+z+1)+"-"+st+"-"+chr(96+size-i+z+1)
+        print(st.center(wid,"-"))    
+        
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
+
+"""PROBLEM DESCRIPTION STARTS HERE
+
+You are given an integer, N. 
 Your task is to print an alphabet rangoli of size N. 
 (Rangoli is a form of Indian folk art based on creation of patterns.)
 
@@ -69,26 +94,3 @@ e-d-c-b-a-b-c-d-e
 ----e-d-c-d-e----
 ------e-d-e------
 --------e--------"""
-
-def print_rangoli(size):
-    
-    #first calculate the rangoli width
-    wid=4*size-3
-    
-    #the first part is crescent, till middle where there is max number of letter
-    for i in range(0,size):
-        st=chr(96+size-i)
-        for z in range(i):
-            st=chr(96+size-i+z+1)+"-"+st+"-"+chr(96+size-i+z+1)
-        print(st.center(wid,"-"))
-        
-    #the second part is descrescent, remember not to repeat the middle line    
-    for i in range(size-2,-1,-1):
-        st=chr(96+size-i)
-        for z in range(i):
-            st=chr(96+size-i+z+1)+"-"+st+"-"+chr(96+size-i+z+1)
-        print(st.center(wid,"-"))    
-        
-if __name__ == '__main__':
-    n = int(input())
-    print_rangoli(n)
