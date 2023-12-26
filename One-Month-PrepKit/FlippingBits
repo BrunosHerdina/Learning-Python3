@@ -1,0 +1,47 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'flippingBits' function below.
+#
+# The function is expected to return a LONG_INTEGER.
+# The function accepts LONG_INTEGER n as parameter.
+#
+
+def flippingBits(n):
+    b=list('{:032b}'.format(n))
+    for i in range(len(b)):
+        if b[i]=="0":
+            b[i]="1"
+        else:
+            b[i]="0"
+    return (int("".join(b), 2))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input().strip())
+
+    for q_itr in range(q):
+        n = int(input().strip())
+
+        result = flippingBits(n)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+"""PROBLEM DESCRIPTION
+You will be given a list of 32 bit unsigned integers. Flip all the bits (1->0 and 0->1) and return the result as an unsigned integer.
+
+Example
+n = 9
+9 = 1001. We're working with 32 bits, so:
+00000000000000000000000000001001 = 9 in decimal.
+11111111111111111111111111110110 = 4294967286 in decimal.
+Return 4294967286."""
