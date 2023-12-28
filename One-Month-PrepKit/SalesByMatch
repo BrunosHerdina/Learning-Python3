@@ -1,0 +1,11 @@
+"""PROBLEM DESCRIPTION
+There is a large pile of socks that must be paired by color. 
+Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are."""
+
+#ANSWER
+
+def sockMerchant(n, ar):
+    pairs=0
+    for i in range(max(ar)+1):
+        pairs+=ar.count(i)//2
+    return pairs
