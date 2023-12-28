@@ -1,0 +1,24 @@
+"""PROBLEM DESCRIPTION
+In this challenge, the task is to debug the existing code to successfully execute all provided test files.
+IMPORTANT: you may change 3 lines at most.You cannot add or remove lines of code."""
+
+#Answer would be easier with: a = a[:len(a)//2] + a[len(a):len(a)//2-1:-1], buuuuut here it goes:
+
+def findZigZagSequence(a, n):
+    a.sort()
+    mid = int(n/2) #eliminated the +1, gives the wrong index. Eliminated the extra parentesis
+    a[mid], a[n-1] = a[n-1], a[mid]
+
+    st = mid + 1
+    ed = n - 2 #it is actually -2, instead of -1. -1 was already changed in line 9
+    while (st <= ed):
+        a[st], a[ed] = a[ed], a[st]
+        st = st + 1
+        ed = ed - 1 #it was + when it should be -
+
+    for i in range(n):
+        if i == n-1:
+            print(a[i])
+        else:
+            print(a[i], end=' ')
+    return
